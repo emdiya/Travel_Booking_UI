@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:travel_booking_ui/models/destination_model.dart';
-import 'package:travel_booking_ui/screens/destination_screen.dart';
+import 'package:travel_booking_ui/modules/home/model/destination_model/destination_model.dart';
+
+import 'package:travel_booking_ui/modules/home/page/destination_screen.dart';
+
+import '../controller/destination_controller.dart';
 
 class DestinationCarousel extends StatelessWidget {
   const DestinationCarousel({
@@ -42,14 +45,16 @@ class DestinationCarousel extends StatelessWidget {
           height: 300,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: destinations.length,
+            itemCount: destinationsModels.length,
             itemBuilder: (BuildContext context, index) {
-              Destination destination = destinations[index];
+              //Destination destination = destinations[index];
+              DestinationModel destinationModel = destinationsModels[index];
               return GestureDetector(
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                    return DestinationScreen(destination: destination);
+                    return DestinationScreen(
+                        destinationModel: destinationModel);
                   }));
                 },
                 child: Container(
@@ -81,7 +86,7 @@ class DestinationCarousel extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${destination.activities!.length} សកម្មភាព",
+                                  "${destinationModel.activities!.length} សកម្មភាព",
                                   style: TextStyle(
                                     color: Theme.of(context).primaryColor,
                                     fontSize: 14.0,
@@ -89,7 +94,7 @@ class DestinationCarousel extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  "${destination.description}",
+                                  "${destinationModel.description}",
                                   style: const TextStyle(
                                     color: Colors.grey,
                                     fontSize: 12,
@@ -115,13 +120,14 @@ class DestinationCarousel extends StatelessWidget {
                         child: Stack(
                           children: [
                             Hero(
-                              tag: '${destination.imageUrl}',
+                              tag: '${destinationModel.imageUrl}',
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20.0),
                                 child: Image(
                                   height: 180.0,
                                   width: 240.0,
-                                  image: AssetImage("${destination.imageUrl}"),
+                                  image: AssetImage(
+                                      "${destinationModel.imageUrl}"),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -133,7 +139,7 @@ class DestinationCarousel extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "${destination.city}",
+                                    "${destinationModel.city}",
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -151,7 +157,7 @@ class DestinationCarousel extends StatelessWidget {
                                         width: 5.0,
                                       ),
                                       Text(
-                                        '${destination.country}',
+                                        '${destinationModel.country}',
                                         style: const TextStyle(
                                             color: Colors.white),
                                       ),

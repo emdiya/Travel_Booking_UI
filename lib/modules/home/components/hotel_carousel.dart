@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_booking_ui/models/hotel_model.dart';
+import 'package:travel_booking_ui/modules/home/model/hotel_model.dart';
 
 class HotelCarousel extends StatefulWidget {
   const HotelCarousel({super.key});

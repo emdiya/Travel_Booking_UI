@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:travel_booking_ui/widgets/hotel_carousel.dart';
-
-import '../widgets/custom_destination_carousel.dart';
+import 'package:travel_booking_ui/modules/home/components/custom_destination_carousel.dart';
+import 'package:travel_booking_ui/modules/home/components/hotel_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
