@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel_booking_ui/modules/home/model/hotel_model.dart';
+import 'package:travel_booking_ui/modules/home/controller/hotel_model_controller.dart';
+import 'package:travel_booking_ui/modules/home/model/hotel_model/hotel_model.dart';
 
 class HotelCarousel extends StatefulWidget {
   const HotelCarousel({super.key});
@@ -46,9 +47,9 @@ class _HotelCarouselState extends State<HotelCarousel> {
           height: 300,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: hotels.length,
+            itemCount: hotelModels.length,
             itemBuilder: (BuildContext context, index) {
-              Hotel hotel = hotels[index];
+              HotelModel hotel = hotelModels[index];
               return Container(
                 margin: const EdgeInsets.all(10.0),
                 width: 220.0,
