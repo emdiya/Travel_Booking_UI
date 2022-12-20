@@ -40,16 +40,20 @@ class _DestinationScreenState extends State<DestinationScreen> {
                   borderRadius: BorderRadius.circular(30.0),
                   boxShadow: const [
                     BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0.0, 2.0),
-                      blurRadius: 6.0,
+                      spreadRadius: 0.1,
+                      color: Colors.black38,
+                      offset: Offset(0.0, 1.0),
+                      blurRadius: 4.0,
                     )
                   ],
                 ),
                 child: Hero(
                   tag: '${widget.destination.imageUrl}',
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(30.0),
+                      bottomRight: Radius.circular(30.0),
+                    ),
                     child: Image(
                       image: AssetImage(
                         '${widget.destination.imageUrl}',
@@ -72,7 +76,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       icon: const Icon(
                         Icons.arrow_back,
                         size: 30,
-                        color: Colors.black,
+                        color: Color(0xFFD8ECF1),
                       ),
                     ),
                     Row(
@@ -81,10 +85,12 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           onPressed: () {},
                           icon: const Icon(Icons.search),
                           iconSize: 30,
+                          color: const Color(0xFFD8ECF1),
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(FontAwesomeIcons.gripLines),
+                          color: const Color(0xFFD8ECF1),
                           iconSize: 30,
                         )
                       ],
@@ -152,6 +158,14 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         height: 170.0,
                         width: double.infinity,
                         decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 1,
+                              color: Color(0xFFD8ECF1),
+                              offset: Offset(1, 1),
+                            )
+                          ],
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -183,14 +197,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                       Text(
                                         '${activity.price}\$',
                                         style: const TextStyle(
-                                          fontSize: 22.0,
+                                          fontSize: 20.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
                                       const Text(
                                         'per person',
                                         style: TextStyle(
-                                          fontSize: 14.0,
+                                          color: Color(0xff3EBACE),
+                                          fontSize: 12.0,
                                           fontWeight: FontWeight.w400,
                                         ),
                                       ),

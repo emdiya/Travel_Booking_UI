@@ -14,25 +14,28 @@ class _HotelCarouselState extends State<HotelCarousel> {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                'Exclusive Hotels',
+                'កន្លែងស្នាក់នៅ',
                 style: TextStyle(
-                  fontSize: 22.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black54,
                 ),
               ),
               GestureDetector(
                 onTap: (() => ('---------- See All')),
                 child: Text(
-                  'See All',
+                  'បង្ហាញទាំងអស់',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: 16.0,
-                    letterSpacing: 1.0,
+                    fontSize: 12.0,
                   ),
                 ),
               )
@@ -52,12 +55,20 @@ class _HotelCarouselState extends State<HotelCarousel> {
                 child: Stack(
                   children: <Widget>[
                     Positioned(
-                      bottom: 15.0,
+                      bottom: 25.0,
                       child: Container(
-                        height: 120.0,
-                        width: 240.0,
+                        height: 115.0,
+                        width: 210.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 0.2,
+                              color: Color(0xFFD8ECF1),
+                              offset: Offset(0.1, 0.1),
+                            )
+                          ],
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Padding(
@@ -69,7 +80,7 @@ class _HotelCarouselState extends State<HotelCarousel> {
                                 "${hotel.name}",
                                 style: TextStyle(
                                   color: Theme.of(context).primaryColor,
-                                  fontSize: 20.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 1.2,
                                 ),
@@ -90,10 +101,10 @@ class _HotelCarouselState extends State<HotelCarousel> {
                               Text(
                                 '\$${hotel.price}',
                                 style: TextStyle(
-                                    fontSize: 18.0,
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Theme.of(context).primaryColor),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -115,7 +126,7 @@ class _HotelCarouselState extends State<HotelCarousel> {
                         borderRadius: BorderRadius.circular(20),
                         child: Image(
                           height: 160.0,
-                          width: 220.0,
+                          width: 240.0,
                           image: AssetImage("${hotel.imgUrl}"),
                           fit: BoxFit.cover,
                         ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:travel_booking_ui/widgets/custom_destination_carousel.dart';
 import 'package:travel_booking_ui/widgets/hotel_carousel.dart';
+
+import '../widgets/custom_destination_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -58,17 +59,21 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 30.0),
           children: <Widget>[
             const Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 40),
+              padding: EdgeInsets.only(
+                left: 20.0,
+                right: 40,
+              ),
               child: Text(
                 'តើអ្នកចង់ទៅណា?',
                 style: TextStyle(
-                  fontSize: 24.0,
+                  color: Colors.black54,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,
                 ),
               ),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: icons
@@ -80,12 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   .toList(),
             ),
             const SizedBox(
-              height: 20,
+              height: 15,
             ),
             const DestinationCarousel(),
-            const SizedBox(
-              height: 10,
-            ),
             const HotelCarousel(),
           ],
         ),

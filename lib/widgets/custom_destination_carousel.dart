@@ -18,19 +18,20 @@ class DestinationCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                'Top Destination',
+                'កន្លែងកម្សាន្ត',
                 style: TextStyle(
-                  fontSize: 22.0,
+                  color: Colors.black54,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               GestureDetector(
                 onTap: (() => ('---------- See All')),
                 child: Text(
-                  'See All',
+                  'បង្ហាញទាំងអស់',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: 16.0,
+                    fontSize: 12.0,
                   ),
                 ),
               )
@@ -62,11 +63,19 @@ class DestinationCarousel extends StatelessWidget {
                           height: 120.0,
                           width: 200.0,
                           decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 2,
+                                spreadRadius: 0.2,
+                                color: Color(0xFFD8ECF1),
+                                offset: Offset(0.1, 0.1),
+                              )
+                            ],
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(14.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +92,7 @@ class DestinationCarousel extends StatelessWidget {
                                   "${destination.description}",
                                   style: const TextStyle(
                                     color: Colors.grey,
-                                    fontSize: 14,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ],
@@ -111,7 +120,7 @@ class DestinationCarousel extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20.0),
                                 child: Image(
                                   height: 180.0,
-                                  width: 180.0,
+                                  width: 240.0,
                                   image: AssetImage("${destination.imageUrl}"),
                                   fit: BoxFit.cover,
                                 ),
