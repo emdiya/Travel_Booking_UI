@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_booking_ui/widgets/custom_destination_carousel.dart';
 import 'package:travel_booking_ui/widgets/hotel_carousel.dart';
@@ -11,9 +12,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentTap = 0;
   int isSelected = 0;
   List<IconData> icons = [
     FontAwesomeIcons.plane,
+    FontAwesomeIcons.locationArrow,
     FontAwesomeIcons.bed,
     FontAwesomeIcons.personWalking,
     FontAwesomeIcons.personBiking,
@@ -28,8 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
         debugPrint("------------- Seleted is work $isSelected");
       },
       child: Container(
-        height: 60,
-        width: 60,
+        height: 40,
+        width: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),
           color: isSelected == index
@@ -38,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Icon(
           icons[index],
-          size: 25.0,
+          size: 20.0,
           color: isSelected == index
               ? Theme.of(context).primaryColor
               : const Color(0xFFB4C1C4),
@@ -57,10 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
             const Padding(
               padding: EdgeInsets.only(left: 20.0, right: 40),
               child: Text(
-                'What would you like to find?',
+                'តើអ្នកចង់ទៅណា?',
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 24.0,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5,
                 ),
               ),
             ),
@@ -80,11 +84,44 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const DestinationCarousel(),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             const HotelCarousel(),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentTap,
+        onTap: (int value) {
+          setState(() {
+            currentTap = value;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/search.svg',
+              height: 26,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/home.svg',
+              height: 22,
+            ),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 14,
+              backgroundImage: NetworkImage(
+                'https://i.pinimg.com/originals/b1/c2/e7/b1c2e780201d41239c6cabf128857f37.jpg',
+              ),
+            ),
+            label: '',
+          ),
+        ],
       ),
     );
   }

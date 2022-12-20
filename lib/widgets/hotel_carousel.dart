@@ -23,7 +23,6 @@ class _HotelCarouselState extends State<HotelCarousel> {
                 style: TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
                 ),
               ),
               GestureDetector(
@@ -49,17 +48,17 @@ class _HotelCarouselState extends State<HotelCarousel> {
               Hotel hotel = hotels[index];
               return Container(
                 margin: const EdgeInsets.all(10.0),
-                width: 340.0,
+                width: 220.0,
                 child: Stack(
                   children: <Widget>[
                     Positioned(
                       bottom: 15.0,
                       child: Container(
                         height: 120.0,
-                        width: 320.0,
+                        width: 240.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -68,8 +67,9 @@ class _HotelCarouselState extends State<HotelCarousel> {
                             children: [
                               Text(
                                 "${hotel.name}",
-                                style: const TextStyle(
-                                  fontSize: 22.0,
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 20.0,
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 1.2,
                                 ),
@@ -79,17 +79,20 @@ class _HotelCarouselState extends State<HotelCarousel> {
                               ),
                               Text(
                                 "${hotel.address}",
-                                style: const TextStyle(color: Colors.grey),
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
                               ),
                               const SizedBox(
                                 height: 2.0,
                               ),
                               Text(
                                 '\$${hotel.price}',
-                                style: const TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(context).primaryColor),
                               )
                             ],
                           ),
@@ -111,8 +114,8 @@ class _HotelCarouselState extends State<HotelCarousel> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image(
-                          height: 180.0,
-                          width: 300.0,
+                          height: 160.0,
+                          width: 220.0,
                           image: AssetImage("${hotel.imgUrl}"),
                           fit: BoxFit.cover,
                         ),

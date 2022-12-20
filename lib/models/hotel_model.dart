@@ -14,21 +14,27 @@ class Hotel {
 
 final List<Hotel> hotels = [
   Hotel(
-    imgUrl: 'assets/images/angkor_hotel.jpg',
-    name: 'Hotel 0',
-    address: '404 Great St',
-    price: 175,
+    imgUrl: 'assets/images/sloek_jak.jpg',
+    name: 'ស្លឹកចាក',
+    address: 'ឧទ្យានដងព្រែក',
+    price: 25,
   ),
   Hotel(
-    imgUrl: 'assets/images/deluxe-garden.jpg',
-    name: 'Hotel 1',
-    address: '404 Great St',
-    price: 300,
+    imgUrl: 'assets/images/boeng_kalo.jpg',
+    name: 'ស្លឹកចាកបឹងកាឡូ',
+    address: 'ឧទ្យានដងព្រែក',
+    price: 30,
   ),
   Hotel(
-    imgUrl: 'assets/images/phnompenh_hotel.jpg',
-    name: 'Hotel 2',
-    address: '404 Great St',
-    price: 240,
+    imgUrl: 'assets/images/boeng_kalo_1.jpg',
+    name: 'បឹងកាឡូ ',
+    address: 'ឧទ្យានដងព្រែក',
+    price: 50,
+  ),
+  Hotel(
+    imgUrl: 'assets/images/doung_te_resort.jpg',
+    name: 'ដូងទេ​​',
+    address: 'ឧទ្យានដងព្រែក',
+    price: 60,
   ),
 ];
